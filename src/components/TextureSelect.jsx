@@ -4,15 +4,15 @@ import { useStore } from '../hooks/useStore';
 import * as images from '../images/images'
 
 export const TextureSelector = () => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
     const [texture, setTexture] = useStore(state =>
         [state.texture, state.setTexture]);
 
     // custom hook
     const {
         dirt,
-        grass,
         glass,
+        grass,
         wood,
         log
     } = useKeyboard()
@@ -20,14 +20,18 @@ export const TextureSelector = () => {
     useEffect(() => {
         const visibilityTimeout = setTimeout(() => {
             setVisible(false)
-        }, 2000)
+        }, 1000)
         setVisible(true)
-    })
+
+        return () => {
+            clearTimeout(visibilityTimeout)
+        }
+    }, [texture])
 
     useEffect(() => {
         // cambiar la textura una vez seleccionada
         const options = {
-            dirt, grass, glass, wood, log
+            dirt, glass, grass, wood, log
         }
 
         const selectedTexture = Object.entries(options).find(([texture, isEnabled]) => isEnabled)
@@ -38,12 +42,13 @@ export const TextureSelector = () => {
         }
         // console.log(selectedTexture)
 
-    }, [dirt, grass, glass, wood, log])
+    }, [dirt, glass, grass, wood, log])
 
-    if (!visible) return null
+    // if (!visible) return null
 
     return (
-        <div className='texture-selector'>
+        <div className={`texture-selector`} >
+            {/* <div className={`texture-selector ${visible ? '' : 'hidden'}`} > */}
             {
                 Object.entries(images).map(([imgKey, img]) => {
                     return (

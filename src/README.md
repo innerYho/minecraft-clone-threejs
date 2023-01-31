@@ -1,7 +1,5 @@
 Take of Crea un clon de Minecraft con Javascript, React y Three.js
 https://www.youtube.com/watch?v=dm7nfe3bOE4
-1:39:27
-45:01
 npm create vite@latest
 
 npm i standard -D

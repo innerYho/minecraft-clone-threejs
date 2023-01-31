@@ -33,6 +33,20 @@ body {
     opacity: .5;
 }
 
+
+.texture-selector {
+    bottom: 32px;
+    border: 5px solid #000;
+    position: absolute;
+    background: lightgray;
+    padding: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+/* center box
 .texture-selector {
     background: lightgray;
     padding: 16px;
@@ -43,13 +57,17 @@ body {
     transform: translate(-50%, -50%);
     display: flex;
     gap: 16px;
+} */
+
+.texture-selector.hidden {
+    display: none;
 }
 
 .texture-selector img {
-    width: 100px;
+    width: 50px;
     z-index: 100;
     image-rendering: pixelated;
-    border: 5px solid #000;
+    border: 3px solid #000;
 }
 
 .texture-selector img.selected {

@@ -2,8 +2,7 @@ import { useBox } from "@react-three/cannon"
 import { useState } from "react";
 import { useStore } from '../hooks/useStore';
 import * as textures from '../images/textures'
-export const Cube = ({
-    id, position, texture }) => {
+export const Cube = ({ id, position, texture }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [removeCube] = useStore(state => [state.removeCube])
     const [ref] = useBox(() => ({

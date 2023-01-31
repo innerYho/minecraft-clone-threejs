@@ -1,6 +1,4 @@
 import { Canvas } from '@react-three/fiber'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { Sky } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
 import { Ground } from './components/Ground'
@@ -28,5 +26,4 @@ function App() {
     </>
   )
 }
-
 export default App
